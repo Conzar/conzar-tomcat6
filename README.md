@@ -18,13 +18,11 @@ The module can be obtained from the [Puppet Forge](http://forge.puppetlabs.com/c
 Note, the puppet packages below should automatically be installed if the puppet module command is used.
 
  * Ubuntu Operating System.
- * Puppetlabs/apache module.  Can be obtained here: http://forge.puppetlabs.com/puppetlabs/apache or with the command `puppet module install puppetlabs/apache`
- * Puppetlabs/postgresqldb module.  Can be obtained here: http://forge.puppetlabs.com/puppetlabs/postgresqldb or with the command `puppet module install puppetlabs/postgresqldb`
- * Conzar/reset_apt module.  Can be obtained here: http://forge.puppetlabs.com/conzar/reset_apt or with the command `puppet module install conzar/reset_apt`
+ * Depedencies listed in the Modulefile.
 
 ## Configuration
 
-There is one class (ckan) that needs to be declared.  The class installs and manages a single instance of tomcat6.  The tomcat6 class is a paramaterized class with 1 optional paramater.
+There is one class that needs to be declared.  The class installs and manages a single instance of tomcat6.  The tomcat6 class is a paramaterized class with 1 optional paramater.
 There is one defined type called tomcat6::app.  The tomcat6::app defines a webapp to be installed into the typical webapp directory of tomcat.  
 
 ### Tomcat6 Optional Parameter
@@ -69,8 +67,9 @@ Deploys tomcat6 with the default configuration.
 This example demonstrates a static resource type configured for a web app called pidsvc.
 
 Declaring a hash for the static resource.
-  $tomcat_resources = {
-    pidsvc => {
+
+	$tomcat_resources = {
+		pidsvc => {
 			'name' => 'jdbc/pidsvc',
 			'auth' => 'Container',
 			'type' => 'javax.sql.DataSource',
@@ -90,19 +89,21 @@ Declaring a hash for the static resource.
 			'testOnBorrow' => 'true',
 			'accessToUnderlyingConnectionAllowed' => 'true',
 			'validationQuery' => 'SELECT VERSION();'
-    }
-  }
+		}
+	}
   
 Declaring tomcat6 with the resoures.
-  class { 'tomcat6': 
-    resources => $tomcat_resources,
-  }
+
+	class { 'tomcat6': 
+		resources => $tomcat_resources,
+	}
 
 Declaring an app that eventually utilizes the static resource.
-  tomcat6::app{'pidsvc':
-    war_url => 'https://cgsrv1.arrc.csiro.au/swrepo/PidService/jenkins/trunk/pidsvc-latest.war',
-    jar_lib_url => 'http://jdbc.postgresql.org/download/postgresql-9.3-1100.jdbc4.jar',
-  }
+
+	tomcat6::app{'pidsvc':
+		war_url => 'https://cgsrv1.arrc.csiro.au/swrepo/PidService/jenkins/trunk/pidsvc-latest.war',
+		jar_lib_url => 'http://jdbc.postgresql.org/download/postgresql-9.3-1100.jdbc4.jar',
+	}
 
 ## License
 
