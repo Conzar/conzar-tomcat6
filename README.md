@@ -5,6 +5,7 @@ Author: Michael Speth <spethm@landcareresearch.co.nz>
 ## About
 
 This module installs, configures, and manages Apache Tomcat6.
+Note, uses the system's default version of java.
 
 ## Installation
 
