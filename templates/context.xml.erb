@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<!-- The contents of this file will be loaded for each web application -->
+<Context>
+
+	<WatchedResource>WEB-INF/web.xml</WatchedResource>
+<% if scope.lookupvar('tomcat6::resources') %>
+	<Resource
+	<% scope.lookupvar('tomcat6::resources').each_pair do |key, value_hash| %>
+	   name="<%= value_hash['name'] %>"
+	   auth="<%= value_hash['auth'] %>"
+	   type="<%= value_hash['type'] %>"
+	   driverClassName="<%= value_hash['driverClassName'] %>"
+	   url="<%= value_hash['url'] %>"
+	   username="<%= value_hash['username'] %>"
+	   password="<%= value_hash['password'] %>"
+	   maxActive="<%= value_hash['maxActive'] %>"
+	   minIdle="<%= value_hash['minIdle'] %>"
+	   maxIdle="<%= value_hash['maxIdle'] %>"
+	   maxWait="<%= value_hash['maxWait'] %>"
+	   minEvictableIdleTimeMillis="<%= value_hash['minEvictableIdleTimeMillis'] %>"
+	   timeBetweenEvictionRunsMillis="<%= value_hash['timeBetweenEvictionRunsMillis'] %>"
+	   numTestsPerEvictionRun="<%= value_hash['numTestsPerEvictionRun'] %>"
+	   poolPreparedStatements="<%= value_hash['poolPreparedStatements'] %>"
+	   maxOpenPreparedStatements="<%= value_hash['maxOpenPreparedStatements'] %>"
+	   testOnBorrow="<%= value_hash['testOnBorrow'] %>"
+	   accessToUnderlyingConnectionAllowed="<%= value_hash['accessToUnderlyingConnectionAllowed'] %>"
+	   validationQuery="<%= value_hash['validationQuery'] %>"
+    <% end %>
+   />
+<% end -%> 
+</Context>
