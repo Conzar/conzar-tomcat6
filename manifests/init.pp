@@ -38,7 +38,7 @@
 # GPLv3
 #
 class tomcat6 (
-  $resources = undef,
+  $resources = '',
 ){
 
   $tomcat_root = '/var/lib/tomcat6'
