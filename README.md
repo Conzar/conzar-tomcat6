@@ -1,18 +1,11 @@
 # Tomcat6 puppet module
 
-Author: Michael Speth <spethm@landcareresearch.co.nz>
+[![Build Status](https://travis-ci.org/Conzar/tomcat6.svg?branch=master)](https://travis-ci.org/Conzar/tomcat6)
 
 ## About
 
 This module installs, configures, and manages Apache Tomcat6.
 Note, uses the system's default version of java.
-
-## Installation
-
-The module can be obtained from the [Puppet Forge](http://forge.puppetlabs.com/conzar/tomcat6).  The easiest method for installation is to use the
-[puppet-module tool](https://github.com/puppetlabs/puppet-module-tool).  Run the following command from your modulepath:
-
-`puppet-module install conzar/tomcat6`
 
 ## Requirements
 Note, the puppet packages below should automatically be installed if the puppet module command is used.
