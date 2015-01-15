@@ -1,6 +1,6 @@
 # Tomcat6 puppet module
 
-[![Build Status](https://travis-ci.org/Conzar/tomcat6.svg?branch=master)](https://travis-ci.org/Conzar/tomcat6)
+[![Build Status](https://travis-ci.org/Conzar/conzar-tomcat6.svg?branch=master)](https://travis-ci.org/Conzar/conzar-tomcat6)
 
 ## About
 

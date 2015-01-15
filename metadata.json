@@ -4,9 +4,9 @@
   "author": "Michael Speth",
   "summary": "Installs and Manages Tomcat6",
   "license": "GPL-3.0+",
-  "source": "git://github.com/Conzar/tomcat6.git",
-  "project_page": "https://github.com/Conzar/tomcat6",
-  "issues_url": "https://github.com/Conzar/tomcat6/issues",
+  "source": "git://github.com/Conzar/conzar-tomcat6.git",
+  "project_page": "https://github.com/Conzar/conzar-tomcat6",
+  "issues_url": "https://github.com/Conzar/conzar-tomcat6/issues",
   "operatingsystem_support": [
     { "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [ "12.04", "14.04" ] }
