@@ -42,7 +42,7 @@ class tomcat6 (
 ){
 
   $tomcat_root = '/var/lib/tomcat6'
-  $tomcat_webapps = "$tomcat_root/webapps"
+  $tomcat_webapps = "${tomcat_root}/webapps"
   
   ensure_packages(['unzip'])
 
@@ -51,9 +51,9 @@ class tomcat6 (
   }
   # make sure that these directories exists
   file {[$tomcat_root,$tomcat_webapps,'/etc/tomcat6']:
-    ensure => directory,
+    ensure  => directory,
     require => Package['tomcat6'],
-  } 
+  }
 
   service {'tomcat6':
     ensure    => running,
@@ -67,5 +67,12 @@ class tomcat6 (
     require => [Package['tomcat6'],
                 File['/etc/tomcat6']
     ]
+  }
+  # added due to error where tomcat cannot create .java directory
+  file {'/usr/share/tomcat6':
+    ensure  => directory,
+    owner   => 'tomcat6',
+    group   => 'tomcat6',
+    require => Package['tomcat6']
   }
 }
